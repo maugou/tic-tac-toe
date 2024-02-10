@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../constants.dart';
 import '../providers/game_settings_provider.dart';
@@ -159,6 +160,8 @@ class _GameSettingsScreenState extends ConsumerState<GameSettingsScreen> {
                               size: _boardSizeController.text,
                               winnerCondition: _winnerConditionController.text,
                             );
+
+                        context.go('/game_ground');
                       }
                     },
                     style: ElevatedButton.styleFrom(
