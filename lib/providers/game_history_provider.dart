@@ -52,12 +52,15 @@ class GameHistory extends _$GameHistory {
 
       final prevState = await future;
 
+      final winnerPlayer = game["lastPlayer"];
+
       final result = {
         "board": game["board"],
-        "winnerPlayer": game["lastPlayer"],
+        "winnerPlayer": winnerPlayer,
         "boardSize": gameSettings["boardSize"],
         "winnerCondition": gameSettings["winnerCondition"],
-        "winnerMark": gameSettings[game["lastPlayer"]]["mark"],
+        "winnerMark":
+            winnerPlayer.isEmpty ? "" : gameSettings[winnerPlayer]["mark"],
       };
 
       final currentHistory = [
