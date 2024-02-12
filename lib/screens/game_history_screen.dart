@@ -110,11 +110,7 @@ class _ResultList extends StatelessWidget {
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                       Text(
-                        " (마크 ${result[index].winnerMark}) ",
-                        style: const TextStyle(fontSize: 16),
-                      ),
-                      Text(
-                        "${result[index].winnerPlayer.isNotEmpty ? "승리" : "무승부"} ",
+                        "${result[index].winnerPlayer.isNotEmpty ? "(마크 ${result[index].winnerMark}) 승리" : "무승부"} ",
                         style: const TextStyle(
                             fontSize: 16, fontWeight: FontWeight.bold),
                       ),

@@ -34,7 +34,7 @@ Map<String, dynamic> _$$GameResultImplToJson(_$GameResultImpl instance) =>
 // RiverpodGenerator
 // **************************************************************************
 
-String _$gameHistoryHash() => r'3c29f04947d215ddc4d3aba626471b06a210704c';
+String _$gameHistoryHash() => r'd1cc66bf8c32ada25d6fcd91257f471d18c60ef3';
 
 /// See also [GameHistory].
 @ProviderFor(GameHistory)
