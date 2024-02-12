@@ -11,8 +11,8 @@ class GameSettings extends _$GameSettings {
   @override
   Map<String, dynamic> build() {
     return {
-      "board": [],
-      "winnerCondition": "",
+      "boardSize": 0,
+      "winnerCondition": 0,
       "currentPlayer": playerGroup[Random().nextInt(2)],
       "player1": {
         "mark": PlayerMark.triangle.mark,
@@ -30,13 +30,12 @@ class GameSettings extends _$GameSettings {
     required String winnerCondition,
   }) {
     final length = int.parse(size);
-    final board =
-        List.generate(length, (index) => List.generate(length, (i) => ""));
+    final winnerLength = int.parse(winnerCondition);
 
     state = {
       ...state,
-      "board": board,
-      "winnerCondition": winnerCondition,
+      "boardSize": length,
+      "winnerCondition": winnerLength,
     };
   }
 
