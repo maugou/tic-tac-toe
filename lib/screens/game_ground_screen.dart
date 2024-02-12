@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:tic_tac_toe/providers/game_history_provider.dart';
 import 'package:tic_tac_toe/providers/game_provider.dart';
 
 import '../providers/game_settings_provider.dart';
@@ -68,7 +69,7 @@ class GameGroundScreen extends ConsumerWidget {
                           fit: BoxFit.contain,
                           child: Text(
                             item["mark"],
-                            style: TextStyle(color: item['color']),
+                            style: TextStyle(color: Color(item['colorInt'])),
                           ),
                         ),
                       ),
@@ -129,7 +130,13 @@ class GameGroundScreen extends ConsumerWidget {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            context.go('/');
+                            ref
+                                .read(gameHistoryProvider.notifier)
+                                .recordGameResult(
+                              () {
+                                context.go('/');
+                              },
+                            );
                           },
                           child: const Text(
                             '예',

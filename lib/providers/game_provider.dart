@@ -20,7 +20,7 @@ class Game extends _$Game {
         gameSettings["boardSize"],
         (index) => List.generate(
           gameSettings["boardSize"],
-          (i) => {"mark": "", "color": Colors.black, "order": ""},
+          (i) => {"mark": "", "colorInt": Colors.black.value, "order": ""},
         ),
       ),
       "isEnd": false,
@@ -44,7 +44,7 @@ class Game extends _$Game {
 
     board[columnIndex][rowIndex] = {
       "mark": mark,
-      "color": color,
+      "colorInt": color.value,
       "order": "$_order",
     };
     _order++;
@@ -69,7 +69,8 @@ class Game extends _$Game {
 
     board[indexGroup[0]][indexGroup[1]] = {
       "mark": "",
-      "color": Colors.black,
+      "colorInt": Colors.black.value,
+      "order": "",
     };
 
     state = {

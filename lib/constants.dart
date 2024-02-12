@@ -20,3 +20,7 @@ const mark = [
 ];
 
 const playerGroup = ["player1", "player2"];
+
+enum SharedPreferencesKeys {
+  history,
+}

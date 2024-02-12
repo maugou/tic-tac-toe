@@ -41,7 +41,9 @@ class HomeScreen extends StatelessWidget {
               height: 100,
             ),
             OutlinedButton(
-              onPressed: () {},
+              onPressed: () {
+                context.go('/game_history');
+              },
               style: OutlinedButton.styleFrom(
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(
