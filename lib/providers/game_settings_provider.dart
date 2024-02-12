@@ -12,7 +12,7 @@ class GameSettings extends _$GameSettings {
   Map<String, dynamic> build() {
     return {
       "boardSize": 0,
-      "winnerCondition": "",
+      "winnerCondition": 0,
       "currentPlayer": playerGroup[Random().nextInt(2)],
       "player1": {
         "mark": PlayerMark.triangle.mark,
@@ -30,11 +30,12 @@ class GameSettings extends _$GameSettings {
     required String winnerCondition,
   }) {
     final length = int.parse(size);
+    final winnerLength = int.parse(winnerCondition);
 
     state = {
       ...state,
       "boardSize": length,
-      "winnerCondition": winnerCondition,
+      "winnerCondition": winnerLength,
     };
   }
 
