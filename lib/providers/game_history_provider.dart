@@ -49,7 +49,7 @@ class GameHistory extends _$GameHistory {
       final game = ref.read(gameProvider);
 
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.remove(SharedPreferencesKeys.history.name);
+
       final prevState = await future;
 
       final result = {
