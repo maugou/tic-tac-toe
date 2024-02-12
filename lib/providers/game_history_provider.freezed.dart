@@ -25,6 +25,7 @@ mixin _$GameResult {
   String get winnerPlayer => throw _privateConstructorUsedError;
   int get boardSize => throw _privateConstructorUsedError;
   int get winnerCondition => throw _privateConstructorUsedError;
+  String get winnerMark => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -42,7 +43,8 @@ abstract class $GameResultCopyWith<$Res> {
       {List<List<Map<String, Object>>> board,
       String winnerPlayer,
       int boardSize,
-      int winnerCondition});
+      int winnerCondition,
+      String winnerMark});
 }
 
 /// @nodoc
@@ -62,6 +64,7 @@ class _$GameResultCopyWithImpl<$Res, $Val extends GameResult>
     Object? winnerPlayer = null,
     Object? boardSize = null,
     Object? winnerCondition = null,
+    Object? winnerMark = null,
   }) {
     return _then(_value.copyWith(
       board: null == board
@@ -80,6 +83,10 @@ class _$GameResultCopyWithImpl<$Res, $Val extends GameResult>
           ? _value.winnerCondition
           : winnerCondition // ignore: cast_nullable_to_non_nullable
               as int,
+      winnerMark: null == winnerMark
+          ? _value.winnerMark
+          : winnerMark // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -96,7 +103,8 @@ abstract class _$$GameResultImplCopyWith<$Res>
       {List<List<Map<String, Object>>> board,
       String winnerPlayer,
       int boardSize,
-      int winnerCondition});
+      int winnerCondition,
+      String winnerMark});
 }
 
 /// @nodoc
@@ -114,6 +122,7 @@ class __$$GameResultImplCopyWithImpl<$Res>
     Object? winnerPlayer = null,
     Object? boardSize = null,
     Object? winnerCondition = null,
+    Object? winnerMark = null,
   }) {
     return _then(_$GameResultImpl(
       board: null == board
@@ -132,6 +141,10 @@ class __$$GameResultImplCopyWithImpl<$Res>
           ? _value.winnerCondition
           : winnerCondition // ignore: cast_nullable_to_non_nullable
               as int,
+      winnerMark: null == winnerMark
+          ? _value.winnerMark
+          : winnerMark // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -143,7 +156,8 @@ class _$GameResultImpl implements _GameResult {
       {required final List<List<Map<String, Object>>> board,
       required this.winnerPlayer,
       required this.boardSize,
-      required this.winnerCondition})
+      required this.winnerCondition,
+      required this.winnerMark})
       : _board = board;
 
   factory _$GameResultImpl.fromJson(Map<String, dynamic> json) =>
@@ -163,10 +177,12 @@ class _$GameResultImpl implements _GameResult {
   final int boardSize;
   @override
   final int winnerCondition;
+  @override
+  final String winnerMark;
 
   @override
   String toString() {
-    return 'GameResult(board: $board, winnerPlayer: $winnerPlayer, boardSize: $boardSize, winnerCondition: $winnerCondition)';
+    return 'GameResult(board: $board, winnerPlayer: $winnerPlayer, boardSize: $boardSize, winnerCondition: $winnerCondition, winnerMark: $winnerMark)';
   }
 
   @override
@@ -180,7 +196,9 @@ class _$GameResultImpl implements _GameResult {
             (identical(other.boardSize, boardSize) ||
                 other.boardSize == boardSize) &&
             (identical(other.winnerCondition, winnerCondition) ||
-                other.winnerCondition == winnerCondition));
+                other.winnerCondition == winnerCondition) &&
+            (identical(other.winnerMark, winnerMark) ||
+                other.winnerMark == winnerMark));
   }
 
   @JsonKey(ignore: true)
@@ -190,7 +208,8 @@ class _$GameResultImpl implements _GameResult {
       const DeepCollectionEquality().hash(_board),
       winnerPlayer,
       boardSize,
-      winnerCondition);
+      winnerCondition,
+      winnerMark);
 
   @JsonKey(ignore: true)
   @override
@@ -211,7 +230,8 @@ abstract class _GameResult implements GameResult {
       {required final List<List<Map<String, Object>>> board,
       required final String winnerPlayer,
       required final int boardSize,
-      required final int winnerCondition}) = _$GameResultImpl;
+      required final int winnerCondition,
+      required final String winnerMark}) = _$GameResultImpl;
 
   factory _GameResult.fromJson(Map<String, dynamic> json) =
       _$GameResultImpl.fromJson;
@@ -224,6 +244,8 @@ abstract class _GameResult implements GameResult {
   int get boardSize;
   @override
   int get winnerCondition;
+  @override
+  String get winnerMark;
   @override
   @JsonKey(ignore: true)
   _$$GameResultImplCopyWith<_$GameResultImpl> get copyWith =>
