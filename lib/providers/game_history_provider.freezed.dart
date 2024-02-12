@@ -23,6 +23,8 @@ mixin _$GameResult {
   List<List<Map<String, Object>>> get board =>
       throw _privateConstructorUsedError;
   String get winnerPlayer => throw _privateConstructorUsedError;
+  int get boardSize => throw _privateConstructorUsedError;
+  int get winnerCondition => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +38,11 @@ abstract class $GameResultCopyWith<$Res> {
           GameResult value, $Res Function(GameResult) then) =
       _$GameResultCopyWithImpl<$Res, GameResult>;
   @useResult
-  $Res call({List<List<Map<String, Object>>> board, String winnerPlayer});
+  $Res call(
+      {List<List<Map<String, Object>>> board,
+      String winnerPlayer,
+      int boardSize,
+      int winnerCondition});
 }
 
 /// @nodoc
@@ -54,6 +60,8 @@ class _$GameResultCopyWithImpl<$Res, $Val extends GameResult>
   $Res call({
     Object? board = null,
     Object? winnerPlayer = null,
+    Object? boardSize = null,
+    Object? winnerCondition = null,
   }) {
     return _then(_value.copyWith(
       board: null == board
@@ -64,6 +72,14 @@ class _$GameResultCopyWithImpl<$Res, $Val extends GameResult>
           ? _value.winnerPlayer
           : winnerPlayer // ignore: cast_nullable_to_non_nullable
               as String,
+      boardSize: null == boardSize
+          ? _value.boardSize
+          : boardSize // ignore: cast_nullable_to_non_nullable
+              as int,
+      winnerCondition: null == winnerCondition
+          ? _value.winnerCondition
+          : winnerCondition // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -76,7 +92,11 @@ abstract class _$$GameResultImplCopyWith<$Res>
       __$$GameResultImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<List<Map<String, Object>>> board, String winnerPlayer});
+  $Res call(
+      {List<List<Map<String, Object>>> board,
+      String winnerPlayer,
+      int boardSize,
+      int winnerCondition});
 }
 
 /// @nodoc
@@ -92,6 +112,8 @@ class __$$GameResultImplCopyWithImpl<$Res>
   $Res call({
     Object? board = null,
     Object? winnerPlayer = null,
+    Object? boardSize = null,
+    Object? winnerCondition = null,
   }) {
     return _then(_$GameResultImpl(
       board: null == board
@@ -102,6 +124,14 @@ class __$$GameResultImplCopyWithImpl<$Res>
           ? _value.winnerPlayer
           : winnerPlayer // ignore: cast_nullable_to_non_nullable
               as String,
+      boardSize: null == boardSize
+          ? _value.boardSize
+          : boardSize // ignore: cast_nullable_to_non_nullable
+              as int,
+      winnerCondition: null == winnerCondition
+          ? _value.winnerCondition
+          : winnerCondition // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -111,7 +141,9 @@ class __$$GameResultImplCopyWithImpl<$Res>
 class _$GameResultImpl implements _GameResult {
   _$GameResultImpl(
       {required final List<List<Map<String, Object>>> board,
-      required this.winnerPlayer})
+      required this.winnerPlayer,
+      required this.boardSize,
+      required this.winnerCondition})
       : _board = board;
 
   factory _$GameResultImpl.fromJson(Map<String, dynamic> json) =>
@@ -127,10 +159,14 @@ class _$GameResultImpl implements _GameResult {
 
   @override
   final String winnerPlayer;
+  @override
+  final int boardSize;
+  @override
+  final int winnerCondition;
 
   @override
   String toString() {
-    return 'GameResult(board: $board, winnerPlayer: $winnerPlayer)';
+    return 'GameResult(board: $board, winnerPlayer: $winnerPlayer, boardSize: $boardSize, winnerCondition: $winnerCondition)';
   }
 
   @override
@@ -140,13 +176,21 @@ class _$GameResultImpl implements _GameResult {
             other is _$GameResultImpl &&
             const DeepCollectionEquality().equals(other._board, _board) &&
             (identical(other.winnerPlayer, winnerPlayer) ||
-                other.winnerPlayer == winnerPlayer));
+                other.winnerPlayer == winnerPlayer) &&
+            (identical(other.boardSize, boardSize) ||
+                other.boardSize == boardSize) &&
+            (identical(other.winnerCondition, winnerCondition) ||
+                other.winnerCondition == winnerCondition));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_board), winnerPlayer);
+      runtimeType,
+      const DeepCollectionEquality().hash(_board),
+      winnerPlayer,
+      boardSize,
+      winnerCondition);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +209,9 @@ class _$GameResultImpl implements _GameResult {
 abstract class _GameResult implements GameResult {
   factory _GameResult(
       {required final List<List<Map<String, Object>>> board,
-      required final String winnerPlayer}) = _$GameResultImpl;
+      required final String winnerPlayer,
+      required final int boardSize,
+      required final int winnerCondition}) = _$GameResultImpl;
 
   factory _GameResult.fromJson(Map<String, dynamic> json) =
       _$GameResultImpl.fromJson;
@@ -174,6 +220,10 @@ abstract class _GameResult implements GameResult {
   List<List<Map<String, Object>>> get board;
   @override
   String get winnerPlayer;
+  @override
+  int get boardSize;
+  @override
+  int get winnerCondition;
   @override
   @JsonKey(ignore: true)
   _$$GameResultImplCopyWith<_$GameResultImpl> get copyWith =>

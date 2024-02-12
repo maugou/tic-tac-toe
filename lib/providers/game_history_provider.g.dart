@@ -16,19 +16,23 @@ _$GameResultImpl _$$GameResultImplFromJson(Map<String, dynamic> json) =>
               .toList())
           .toList(),
       winnerPlayer: json['winnerPlayer'] as String,
+      boardSize: json['boardSize'] as int,
+      winnerCondition: json['winnerCondition'] as int,
     );
 
 Map<String, dynamic> _$$GameResultImplToJson(_$GameResultImpl instance) =>
     <String, dynamic>{
       'board': instance.board,
       'winnerPlayer': instance.winnerPlayer,
+      'boardSize': instance.boardSize,
+      'winnerCondition': instance.winnerCondition,
     };
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$gameHistoryHash() => r'bdb74a74d3e73f445a7b6f953d651c9fcaa3ced8';
+String _$gameHistoryHash() => r'0050e3f84ca92fc474db5995369b9b02252366ea';
 
 /// See also [GameHistory].
 @ProviderFor(GameHistory)
