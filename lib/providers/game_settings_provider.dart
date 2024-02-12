@@ -15,7 +15,7 @@ class GameSettings extends _$GameSettings {
       "winnerCondition": 0,
       "currentPlayer": playerGroup[Random().nextInt(2)],
       "player1": {
-        "mark": PlayerMark.triangle.mark,
+        "mark": PlayerMark.xMark.mark,
         "color": Colors.blue,
       },
       "player2": {

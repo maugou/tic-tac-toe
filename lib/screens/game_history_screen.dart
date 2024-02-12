@@ -101,10 +101,24 @@ class _ResultList extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Center(
-                  child: Text(
-                    "${result[index].winnerPlayer} 승리",
-                    style: const TextStyle(
-                        fontSize: 16, fontWeight: FontWeight.bold),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        result[index].winnerPlayer,
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        " (마크 ${result[index].winnerMark}) ",
+                        style: const TextStyle(fontSize: 16),
+                      ),
+                      Text(
+                        "${result[index].winnerPlayer.isNotEmpty ? "승리" : "무승부"} ",
+                        style: const TextStyle(
+                            fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
+                    ],
                   ),
                 ),
               ],

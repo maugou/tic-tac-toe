@@ -18,6 +18,7 @@ class GameResult with _$GameResult {
     required String winnerPlayer,
     required int boardSize,
     required int winnerCondition,
+    required String winnerMark,
   }) = _GameResult;
 
   factory GameResult.fromJson(Map<String, dynamic> json) =>
@@ -48,7 +49,7 @@ class GameHistory extends _$GameHistory {
       final game = ref.read(gameProvider);
 
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-
+      prefs.remove(SharedPreferencesKeys.history.name);
       final prevState = await future;
 
       final result = {
@@ -56,6 +57,7 @@ class GameHistory extends _$GameHistory {
         "winnerPlayer": game["lastPlayer"],
         "boardSize": gameSettings["boardSize"],
         "winnerCondition": gameSettings["winnerCondition"],
+        "winnerMark": gameSettings[game["lastPlayer"]]["mark"],
       };
 
       final currentHistory = [
